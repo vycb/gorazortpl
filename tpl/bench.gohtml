@@ -1,0 +1,19 @@
+@{
+	import(
+		"strings"
+		."github.com/vycb/gorazortpl/tpl/bench"
+	)
+	var p *Page
+}
+
+@Header(p)
+<h1>Hello @strings.TrimSpace(p.Title) !</h1>
+
+<p>Here's a list of your favorite colors:</p>
+<ul>
+	@for _, colorName := range p.FavoriteColors {
+
+	<li>@colorName</li>
+	}
+</ul>
+@Footer(p)
